@@ -63,5 +63,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ env.OWNER_LC }}/tagging:${{ needs.makeTagAndRelease.outputs.tag_name }},
-            ghcr.io/${{ env.OWNER_LC }}/tagging:latest
+            ghcr.io/${{ env.OWNER_LC }}/tagging-2024-04-19:${{ needs.makeTagAndRelease.outputs.tag_name }},
+            ghcr.io/${{ env.OWNER_LC }}/tagging-2024-04-19:latest

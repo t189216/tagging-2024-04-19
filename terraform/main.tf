@@ -173,6 +173,13 @@ resource "aws_iam_instance_profile" "instance_profile_1" {
 locals {
   ec2_user_data_base = <<-END_OF_FILE
 #!/bin/bash
+sudo dd if=/dev/zero of=/swapfile bs=128M count=32  # 4GB 스왑 파일 생성
+sudo chmod 600 /swapfile  # 스왑 파일 권한 변경
+sudo mkswap /swapfile  # 스왑 파일을 스왑 공간으로 설정
+sudo swapon /swapfile  # 스왑 파일 활성화
+sudo swapon -s  # 활성화된 스왑 파일 목록 확인
+sudo sh -c 'echo "/swapfile swap swap defaults 0 0" >> /etc/fstab'  # 부팅 시 스왑 파일 자동 활성화 설정
+
 yum install python -y
 yum install pip -y
 pip install requests
@@ -183,13 +190,26 @@ systemctl enable docker  # Docker 부팅 시 자동 시작 설정
 systemctl start docker   # Docker 서비스 시작
 curl -L https:#github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose  # 최신 Docker Compose 다운로드 및 설치
 chmod +x /usr/local/bin/docker-compose  # Docker Compose 실행 권한 부여
+
+docker run --name mysql_1 \
+    -e MYSQL_ROOT_PASSWORD=lltg123414 \
+    -e TZ=Asia/Seoul \
+    -d \
+    -p 3306:3306 \
+    -v /docker_projects/mysql_1/volumns/var/lib/mysql:/var/lib/mysql \
+    --restart unless-stopped \
+    mysql \
+    --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+docker run \
+  --name=redis_1 \
+  --restart unless-stopped \
+  -p 6379:6379 \
+  -e TZ=Asia/Seoul \
+  -d \
+  redis
+
 yum install git -y  # Git 설치
-sudo dd if=/dev/zero of=/swapfile bs=128M count=32  # 4GB 스왑 파일 생성
-sudo chmod 600 /swapfile  # 스왑 파일 권한 변경
-sudo mkswap /swapfile  # 스왑 파일을 스왑 공간으로 설정
-sudo swapon /swapfile  # 스왑 파일 활성화
-sudo swapon -s  # 활성화된 스왑 파일 목록 확인
-sudo sh -c 'echo "/swapfile swap swap defaults 0 0" >> /etc/fstab'  # 부팅 시 스왑 파일 자동 활성화 설정
+
 END_OF_FILE
 }
 
@@ -217,19 +237,11 @@ resource "aws_instance" "ec2_1" {
   # User data script for ec2_1
   user_data = <<-EOF
 ${local.ec2_user_data_base}
-mkdir -p /docker_projects/tagging/source
-cd /docker_projects/tagging/source
-git clone https://github.com/t189216/tagging-2024-04-19 .
-# 도커 이미지 생성
-docker build -t tagging_1:1 .
-# 생성된 이미지 실행
-docker run \
-    --name=tagging_1_1 \
-    -p 8080:8080 \
-    -v /docker_projects/tagging_1/volumes/gen:/gen \
-    --restart unless-stopped \
-    -e TZ=Asia/Seoul \
-    -d \
-    tagging_1:1
+
+mkdir -p /docker_projects/tagging
+curl -o /docker_projects/tagging/zero_downtime_deploy.py https://raw.githubusercontent.com/t189216/tagging-2024-04-19/main/infraScript/zero_downtime_deploy.py
+chmod +x /docker_projects/tagging/zero_downtime_deploy.py
+/docker_projects/tagging/zero_downtime_deploy.py
+
 EOF
 }

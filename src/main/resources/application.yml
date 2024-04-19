@@ -40,8 +40,8 @@ logging:
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
     org.springframework.transaction.interceptor: TRACE
-  custom:
-    temp:
-      dirPath: ${HOME}/Desktop/os/temp
-    gen:
-      dirPath: ${HOME}/Desktop/os/temp/tagging-2024-04-19_dev/gen
+custom:
+  temp:
+    dirPath: ${HOME}/Desktop/os/temp
+  gen:
+    dirPath: ${HOME}/Desktop/os/temp/tagging-2024-04-19_dev/gen

@@ -36,6 +36,6 @@ logging:
     org.springframework.transaction.interceptor: INFO
 custom:
   temp:
-    dirPath: ${custom.temp.dirPath}
+    dirPath: /tmp
   gen:
-    dirPath: ${custom.gen.dirPath}
+    dirPath: /gen

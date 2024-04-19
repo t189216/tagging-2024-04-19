@@ -28,13 +28,13 @@ spring:
         use_sql_comments: false
 logging:
   level:
-    com.ll.tg.tagging-2024-04-19_2: INFO
+    com.ll.tagging-2024-04-19_2: INFO
     org.hibernate.SQL: INFO
     org.hibernate.orm.jdbc.bind: INFO
     org.hibernate.orm.jdbc.extract: INFO
     org.springframework.transaction.interceptor: INFO
-  custom:
-    temp:
-      dirPath: /tmp
-    gen:
-      dirPath: /gen
+custom:
+  temp:
+    dirPath: /tmp
+  gen:
+    dirPath: /gen

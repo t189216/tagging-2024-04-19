@@ -24,3 +24,24 @@ spring:
     user:
       name: user1
       password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+logging:
+  level:
+    com.ll.tg.tagging-2024-04-19_2: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
+    org.springframework.transaction.interceptor: TRACE
+  custom:
+    temp:
+      dirPath: ${HOME}/Desktop/os/temp
+    gen:
+      dirPath: ${HOME}/Desktop/os/temp/tagging-2024-04-19_dev/gen

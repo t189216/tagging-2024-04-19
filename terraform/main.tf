@@ -238,10 +238,10 @@ resource "aws_instance" "ec2_1" {
   user_data = <<-EOF
 ${local.ec2_user_data_base}
 
-mkdir -p /docker_projects/tagging
-curl -o /docker_projects/tagging/zero_downtime_deploy.py https://raw.githubusercontent.com/t189216/tagging-2024-04-19/main/infraScript/zero_downtime_deploy.py
-chmod +x /docker_projects/tagging/zero_downtime_deploy.py
-/docker_projects/tagging/zero_downtime_deploy.py
+mkdir -p /docker_projects/tagging-2024-04-19
+curl -o /docker_projects/tagging-2024-04-19/zero_downtime_deploy.py https://raw.githubusercontent.com/t189216/tagging-2024-04-19/main/infraScript/zero_downtime_deploy.py
+chmod +x /docker_projects/tagging-2024-04-19/zero_downtime_deploy.py
+/docker_projects/tagging-2024-04-19/zero_downtime_deploy.py
 
 EOF
 }

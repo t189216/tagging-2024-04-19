@@ -4,3 +4,23 @@ spring:
   profiles:
     active: dev
     include: secret
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.session.SessionAutoConfiguration
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: ${spring.servlet.multipart.max-file-size}
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:h2:./db;MODE=MYSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  security:
+    user:
+      name: user1
+      password: 1234

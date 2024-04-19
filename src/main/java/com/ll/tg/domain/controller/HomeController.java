@@ -11,9 +11,8 @@ public class HomeController {
     private String jwtSecretKey;
 
     @GetMapping("/")
-    @ResponseBody
     public String home() {
-        return "home8";
+        return "domain/home";
     }
 
     @GetMapping("/jwtSecretKey")

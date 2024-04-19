@@ -26,7 +26,7 @@ spring:
         format_sql: false
         highlight_sql: false
         use_sql_comments: false
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
 logging:
   level:
     com.ll.tagging-2024-04-19_2: INFO

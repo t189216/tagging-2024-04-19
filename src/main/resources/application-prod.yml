@@ -27,9 +27,6 @@ spring:
         highlight_sql: false
         use_sql_comments: false
         dialect: org.hibernate.dialect.MySQL8Dialect
-  web:
-    resources:
-      static-locations: file:/docker_projects/tagging-2024-04-19/volumes/gen/
 logging:
   level:
     com.ll.tagging-2024-04-19_2: INFO
@@ -39,6 +36,6 @@ logging:
     org.springframework.transaction.interceptor: INFO
 custom:
   temp:
-    dirPath: /tmp
+    dirPath: ${custom.temp.dirPath}
   gen:
-    dirPath: /gen
+    dirPath: ${custom.gen.dirPath}

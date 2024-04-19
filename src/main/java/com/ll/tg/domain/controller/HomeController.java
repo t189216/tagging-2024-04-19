@@ -13,7 +13,7 @@ public class HomeController {
     @GetMapping("/")
     @ResponseBody
     public String home() {
-        return "home6";
+        return "home7";
     }
 
     @GetMapping("/jwtSecretKey")

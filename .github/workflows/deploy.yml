@@ -80,22 +80,7 @@ jobs:
           working-directory: /
           comment: Deploy
           command: |
-            # 기존에 실행된 컨테이너 제거
-            docker stop tagging_1_1
-            docker rm tagging_1_1
-            
-            # 새 도커 이미지 PULL
-            docker pull ghcr.io/t189216/tagging-2024-04-19
-            
-            # 생성된 이미지 실행
-            docker run \
-            --name=tagging_1_1 \
-            -p 8080:8080 \
-            -v /docker_projects/tagging_1/volumes/gen:/gen \
-            --restart unless-stopped \
-            -e TZ=Asia/Seoul \
-            -d \
-            ghcr.io/t189216/tagging-2024-04-19
-            
-            # 태그가 none 인 이미지(예전에는 latest 였으니, docker pull 에 의해서 새로운 latest 태그를 가진 이미지가 생겨서, 더 이상 사용안되는 것들) 제거
-            docker rmi $(docker images -f "dangling=true" -q)
+            mkdir -p /docker_projects/tagging
+            curl -o /docker_projects/tagging/zero_downtime_deploy.py https://raw.githubusercontent.com/T189216/tagging-2024-04-19/main/infraScript/zero_downtime_deploy.py
+            chmod +x /docker_projects/tagging/zero_downtime_deploy.py
+            /docker_projects/tagging/zero_downtime_deploy.py

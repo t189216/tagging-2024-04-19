@@ -173,6 +173,9 @@ resource "aws_iam_instance_profile" "instance_profile_1" {
 locals {
   ec2_user_data_base = <<-END_OF_FILE
 #!/bin/bash
+yum install python -y
+yum install socat -y
+
 yum install docker -y    # Docker 설치
 systemctl enable docker  # Docker 부팅 시 자동 시작 설정
 systemctl start docker   # Docker 서비스 시작

@@ -38,4 +38,4 @@ custom:
   temp:
     dirPath: /tmp
   gen:
-    dirPath: /gen
+    dirPath: /docker_projects/tagging-2024-04-19/volumes/gen

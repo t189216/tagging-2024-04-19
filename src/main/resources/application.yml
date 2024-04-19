@@ -1,1 +1,2 @@
-spring.application.name=tagging-2024-04-19
+server:
+  port: 8090

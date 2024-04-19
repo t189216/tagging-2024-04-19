@@ -1,2 +1,8 @@
 server:
   port: 8080
+  # 스프링부트가 종료 요청을 받았을 때 현재 본인이 하던 일(요청에 대한 응답, 배치작업 등)을 전부 마친 후 종료되도록
+  shutdown: graceful
+spring:
+  lifecycle:
+    # 스프링부트가 종료 요청을 받은 후 기다려줄 수 있는 최대한의 시간
+    timeout-per-shutdown-phase: 1h

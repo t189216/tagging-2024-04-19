@@ -29,7 +29,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
 logging:
   level:
-    com.ll.tagging-2024-04-19_2: INFO
+    com.ll.tg: INFO
     org.hibernate.SQL: INFO
     org.hibernate.orm.jdbc.bind: INFO
     org.hibernate.orm.jdbc.extract: INFO
@@ -38,4 +38,4 @@ custom:
   temp:
     dirPath: /tmp
   gen:
-    dirPath: /docker_projects/tagging-2024-04-19/volumes/gen
+    dirPath: /gen

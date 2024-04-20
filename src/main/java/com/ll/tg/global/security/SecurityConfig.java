@@ -19,6 +19,7 @@
 //                        authorizeRequests
 //                                .requestMatchers("/h2-console/**", "/css/**", "/")
 //                                .permitAll()
+//                                .anyRequest().authenticated()
 //                )
 //                .headers(
 //                        headers ->

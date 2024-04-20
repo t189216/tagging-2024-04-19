@@ -1,19 +1,59 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <link href="/css/tagging.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>BLOG</title>
+<head th:replace="fragments/header :: header">
+
 </head>
 
 <body>
-<h1>업로드 된 글 목록입니다.</h1>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <i class="fa-solid fa-tags"></i>
+        </a>
 
-<h2>인터넷 프로그래밍 과제</h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex me-auto" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">내 글</a></li>
+                        <li><a class="dropdown-item" href="#">내 정보</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                LOGOUT
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<ul>
-    <li><a href="/survey">설문조사</a></li>
-    <li><a href="/introduction">자기소개</a></li>
-</ul>
+<div class="flex-content">
+    <div class="text-center">
+        <h3>현재 공개된 아카이브</h3>
+    </div>
+
+    <div class="text-center">
+        <h5>인터넷 프로그래밍 과제</h5>
+        <ul class="text-center">
+            <li><a href="/survey">설문조사</a></li>
+            <li><a href="/introduction">자기소개</a></li>
+        </ul>
+    </div>
+</div>
+
 </body>
 </html>

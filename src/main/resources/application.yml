@@ -35,7 +35,7 @@ spring:
         use_sql_comments: true
 logging:
   level:
-    com.ll.tagging-2024-04-19: DEBUG
+    com.ll.tg: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE

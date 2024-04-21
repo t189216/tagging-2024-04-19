@@ -6,6 +6,15 @@
     padding: 20px;
 }
 
+.icon-size-fix  {
+    width: 16px;
+    height: 17px;
+}
+
+.icon-space {
+    margin-right: 5px;
+}
+
 /* 메인페이지 */
 .text-center {
     padding: 20px;

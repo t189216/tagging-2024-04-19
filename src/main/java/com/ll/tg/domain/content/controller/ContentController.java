@@ -15,4 +15,9 @@ public class ContentController {
     public String introduction() {
         return "domain/content/introduction";
     }
+
+    @GetMapping("/api")
+    public String api() {
+        return "domain/content/api";
+    }
 }

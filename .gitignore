@@ -44,3 +44,6 @@ db.trace.db
 
 ### terraform ###
 .terraform
+
+### temp ###
+src/main/resources/templates/domain/content

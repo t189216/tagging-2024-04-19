@@ -5,22 +5,16 @@
     <title>Kakao 지도 시작하기</title>
 </head>
 <body>
-<div id="map" style="width: 500px; height: 400px;"></div>
+<div id="map" style="width:500px;height:400px;"></div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=818338a19ded835f4d71b708d3b114e4"></script>
 <script>
-const script = document.createElement("script");
-script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=${custom.kakaoMap.apiKey}&autoload=false&libraries=clusterer,services&";
-document.head.appendChild(script);
-script.onload = () => {
-    kakao.maps.load(() => {
-        const node = document.getElementById('map'); // 지도를 표시할 div
-        const center = new kakao.maps.LatLng(37.50802, 127.062835);
-        const options = {
-            center,
-            level: 3
-        };
-        const map = new kakao.maps.Map(node, options);
-    });
-};
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3
+    };
+
+    var map = new kakao.maps.Map(container, options);
 </script>
 </body>
 </html>

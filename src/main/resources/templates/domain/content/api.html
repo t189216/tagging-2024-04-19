@@ -7,31 +7,20 @@
 <body>
 <div id="map" style="width: 500px; height: 400px;"></div>
 <script>
-    function initMap() {
-      var container = document.getElementById('map');
-      var options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3
-      };
-
-      var map = new kakao.maps.Map(container, options);
-    }
-
-    function loadKakaoMap() {
-      if (window.kakao && window.kakao.maps) {
-        // 카카오 지도 API가 이미 로드된 경우 지도 초기화 코드 실행
-        initMap();
-      } else {
-        // 카카오 지도 API가 로드되지 않은 경우 비동기 로드
-        const script = document.createElement('script');
-        script.onload = initMap;
-        script.src = '//dapi.kakao.com/v2/maps/sdk.js?appkey=${custom.kakaoMap.apiKey}';
-        document.head.appendChild(script);
-      }
-    }
-
-    // 문서 로드 시 지도 로드
-    document.addEventListener('DOMContentLoaded', loadKakaoMap);
+const script = document.createElement("script");
+script.src = "http://dapi.kakao.com/v2/maps/sdk.js?appkey=${custom.kakaoMap.apiKey}&autoload=false&libraries=clusterer,services&";
+document.head.appendChild(script);
+script.onload = () => {
+    kakao.maps.load(() => {
+        const node = document.getElementById('map'); // 지도를 표시할 div
+        const center = new kakao.maps.LatLng(37.50802, 127.062835);
+        const options = {
+            center,
+            level: 3
+        };
+        const map = new kakao.maps.Map(node, options);
+    });
+};
 </script>
 </body>
 </html>

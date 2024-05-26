@@ -23,3 +23,9 @@
 ul {
     list-style-type: none;
 }
+
+/* 로그인 */
+.container {
+    justify-content: center;
+    align-items: center;
+}

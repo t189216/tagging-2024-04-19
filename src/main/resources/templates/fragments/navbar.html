@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <div class="header" th:fragment="navbar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -29,7 +29,11 @@
                             <li><a class="dropdown-item" href="#">내 정보</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" th:href="@{/user/login}" sec:authorize="isAnonymous()">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    LOGIN
+                                </a>
+                                <a class="dropdown-item" th:href="@{/user/logout}" sec:authorize="isAuthenticated()">
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                     LOGOUT
                                 </a>

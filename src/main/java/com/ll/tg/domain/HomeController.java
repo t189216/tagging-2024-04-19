@@ -1,4 +1,4 @@
-package com.ll.tg.controller;
+package com.ll.tg.domain;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

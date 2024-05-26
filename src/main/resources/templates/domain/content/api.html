@@ -8,7 +8,7 @@
 <div id="map" style="width: 500px; height: 400px;"></div>
 <script>
 const script = document.createElement("script");
-script.src = "http://dapi.kakao.com/v2/maps/sdk.js?appkey=${custom.kakaoMap.apiKey}&autoload=false&libraries=clusterer,services&";
+script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=${custom.kakaoMap.apiKey}&autoload=false&libraries=clusterer,services&";
 document.head.appendChild(script);
 script.onload = () => {
     kakao.maps.load(() => {

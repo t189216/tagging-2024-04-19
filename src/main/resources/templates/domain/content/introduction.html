@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
-<head>
-    <link href="/css/tagging.css" rel="stylesheet">
-    <meta charset="UTF-8">
+<head th:replace="fragments/header :: header">
     <title>자기소개</title>
 </head>
 
 <body>
-<div th:replace="fragments/navbar :: navbar"/>
+<div th:replace="fragments/navbar :: navbar" />
 
 <h1>안녕하세요, 저는 이서연입니다!</h1>
 <p>저는 Java와 Spring Boot를 주로 사용하는 웹 백엔드 개발자를 꿈꾸고 있습니다.</p>

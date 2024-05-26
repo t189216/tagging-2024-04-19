@@ -20,10 +20,7 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/h2-console/**", "/css/**", "/**", "/user/**")
-                                .permitAll()
-                                .anyRequest()
-                                .authenticated()
+                                .anyRequest().permitAll() // 모든 요청에 대해 접근 허용
                 )
                 .headers(
                         headers ->

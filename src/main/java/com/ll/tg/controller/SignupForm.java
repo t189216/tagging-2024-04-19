@@ -1,4 +1,4 @@
-package com.ll.tg.domain.user.controller;
+package com.ll.tg.controller;
 
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -7,10 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Builder
-public class SignUpForm {
+public class SignupForm {
     @Size(min = 3, max = 25)
-    @NotEmpty(message = "닉네임은 필수로 작성해야 합니다.")
+    @NotEmpty(message = "ID는 필수로 작성해야 합니다.")
     private String username;
 
     @NotEmpty(message = "이메일은 필수로 설정해야 합니다.")

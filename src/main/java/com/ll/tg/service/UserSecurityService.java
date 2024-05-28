@@ -1,8 +1,8 @@
-package com.ll.tg.domain.user.service;
+package com.ll.tg.service;
 
-import com.ll.tg.domain.user.domain.SiteUser;
-import com.ll.tg.domain.user.domain.UserRole;
-import com.ll.tg.domain.user.repository.UserRepository;
+import com.ll.tg.controller.SiteUser;
+import com.ll.tg.domain.UserRole;
+import com.ll.tg.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,4 +1,4 @@
-package com.ll.tg.domain.user.domain;
+package com.ll.tg.domain;
 
 import lombok.Getter;
 

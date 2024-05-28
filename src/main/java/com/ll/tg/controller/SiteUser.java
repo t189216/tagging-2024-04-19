@@ -1,6 +1,5 @@
-package com.ll.tg.domain.user.domain;
+package com.ll.tg.controller;
 
-import com.ll.tg.global.jpa.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +7,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class SiteUser extends BaseEntity {
+public class SiteUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

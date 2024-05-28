@@ -1,7 +1,7 @@
-package com.ll.tg.domain.user.service;
+package com.ll.tg.service;
 
-import com.ll.tg.domain.user.domain.SiteUser;
-import com.ll.tg.domain.user.repository.UserRepository;
+import com.ll.tg.controller.SiteUser;
+import com.ll.tg.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

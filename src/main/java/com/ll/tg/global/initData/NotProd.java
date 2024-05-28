@@ -1,8 +1,8 @@
 package com.ll.tg.global.initData;
 
-import com.ll.tg.domain.user.controller.SignUpForm;
-import com.ll.tg.domain.user.repository.UserRepository;
-import com.ll.tg.domain.user.service.UserService;
+import com.ll.tg.controller.SignupForm;
+import com.ll.tg.repository.UserRepository;
+import com.ll.tg.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
@@ -25,9 +25,9 @@ public class NotProd {
         return args -> {
             if (userRepository.findByUsername("admin").isEmpty()) {
                 // 샘플 데이터 생성
-                SignUpForm adminForm = new SignUpForm("admin", "admin@example.com", "abcd123412", "abcd123412");
-                SignUpForm user1Form = new SignUpForm("user1", "user1@example.com", "abcd123412", "abcd123412");
-                SignUpForm user2Form = new SignUpForm("user2", "user2@example.com", "abcd123412", "abcd123412");
+                SignupForm adminForm = new SignupForm("admin", "admin@example.com", "abcd123412", "abcd123412");
+                SignupForm user1Form = new SignupForm("user1", "user1@example.com", "abcd123412", "abcd123412");
+                SignupForm user2Form = new SignupForm("user2", "user2@example.com", "abcd123412", "abcd123412");
 
                 // 샘플 데이터 등록
                 userService.register(adminForm.getUsername(), adminForm.getEmail(), adminForm.getPassword());

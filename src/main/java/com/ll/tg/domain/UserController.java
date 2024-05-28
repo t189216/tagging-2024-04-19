@@ -1,10 +1,12 @@
-package com.ll.tg.domain.user.controller;
+package com.ll.tg.domain;
 
-import com.ll.tg.domain.user.service.UserService;
+import com.ll.tg.controller.SignupForm;
+import com.ll.tg.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +20,13 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/signup")
-    public String signup(SignUpForm signUpForm) {
+    public String signupForm(Model model) {
+        model.addAttribute("signupForm", new SignupForm());
         return "domain/user/sign-up";
     }
 
     @PostMapping("/signup")
-    public String signup(@Valid SignUpForm signUpForm, BindingResult bindingResult) {
+    public String signup(@Valid SignupForm signUpForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "domain/user/sign-up";
         }

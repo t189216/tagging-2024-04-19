@@ -1,6 +1,6 @@
-package com.ll.tg.domain.user.repository;
+package com.ll.tg.repository;
 
-import com.ll.tg.domain.user.domain.SiteUser;
+import com.ll.tg.controller.SiteUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

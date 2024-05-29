@@ -3,11 +3,9 @@ package com.ll.tg.controller;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class SignupForm {
+public class MemberForm {
     @Size(min = 3, max = 25)
     @NotEmpty(message = "ID는 필수로 작성해야 합니다.")
     private String username;

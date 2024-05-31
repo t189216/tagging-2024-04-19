@@ -12,7 +12,7 @@
         <div class="col-md-6">
             <h2 class="mb-4 text-center"><span class="login-text">회원가입</span></h2>
 
-            <form th:action="@{/user/signup}" th:object="${signupForm}" method="post">
+            <form th:action="@{/user/signup}" th:object="${signupForm}" method="POST">
                 <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                 <div class="mb-3">
                     <label for="username" class="form-label">ID</label>

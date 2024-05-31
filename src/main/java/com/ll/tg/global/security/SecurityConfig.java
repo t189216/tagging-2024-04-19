@@ -20,7 +20,7 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .anyRequest().permitAll() // 모든 요청에 대해 접근 허용
+                                .anyRequest().permitAll() // 임시로 모든 요청에 대해 접근 허용
                 )
                 .headers(
                         headers ->
@@ -29,13 +29,7 @@ public class SecurityConfig {
                                                 frameOptions.sameOrigin()
                                 )
                 )
-                .csrf(
-                        csrf ->
-                                csrf.ignoringRequestMatchers(
-                                        "/h2-console/**",
-                                        "/api/v1/members"
-                                )
-                )
+                .csrf().disable() // 임시로 CSRF 보호 기능 비활성화
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // 세션 생성 정책
                         .maximumSessions(1) // 동시 세션 수 제한
@@ -44,13 +38,13 @@ public class SecurityConfig {
                 .formLogin(
                         formLogin ->
                                 formLogin
-                                        .loginPage("/user/login")
+                                        .loginPage("/member/login")
                                         .defaultSuccessUrl("/")
                 )
                 .logout(
                         logout ->
                                 logout
-                                        .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                                        .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
                                         .logoutSuccessUrl("/")
                                         .invalidateHttpSession(true)
                 );

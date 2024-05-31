@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,9 +25,29 @@ public class MemberService {
     }
 
     public void validateDuplicateMember(Member member) {
-        Optional<Member> opMember = memberRepository.findByUsername(member.getUsername());
+        Optional<Member> opMember = memberRepository.findByName(member.getName());
         if (opMember.isPresent()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
+        }
+    }
+
+    public List<Member> findMembers() {
+        return memberRepository.findAll();
+    }
+
+    public Optional<Member> findMember(Long id) {
+        return memberRepository.findById(id);
+    }
+
+    @Transactional
+    public void update(Long id, String name) {
+        Optional<Member> opMember = memberRepository.findById(id);
+
+        if (opMember.isPresent()) {
+            Member member = opMember.get();
+            member.setName(name);
+
+            memberRepository.save(member);
         }
     }
 }

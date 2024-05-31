@@ -23,12 +23,26 @@ public class NotProd {
     @Order(2)
     public ApplicationRunner initNotProd() {
         return args -> {
-            if (memberRepository.findByUsername("admin").isEmpty()) {
+            if (memberRepository.findByName("admin").isEmpty()) {
                 Member member1 = new Member();
                 Member member2 = new Member();
                 Member member3 = new Member();
 
+                member1.setName("admin");
+                member1.setEmail("admin@example.com");
+                member1.setPassword("abcd123412");
 
+                member2.setName("user1");
+                member2.setEmail("user1@example.com");
+                member2.setPassword("abcd123412");
+
+                member3.setName("user2");
+                member3.setEmail("user2@example.com");
+                member3.setPassword("abcd123412");
+
+                memberService.join(member1);
+                memberService.join(member2);
+                memberService.join(member3);
             }
         };
     }

@@ -8,7 +8,7 @@ import lombok.*;
 public class MemberForm {
     @Size(min = 3, max = 25)
     @NotEmpty(message = "ID는 필수로 작성해야 합니다.")
-    private String username;
+    private String name;
 
     @NotEmpty(message = "이메일은 필수로 설정해야 합니다.")
     @Email(message = "올바른 이메일 형식을 입력해주세요.")

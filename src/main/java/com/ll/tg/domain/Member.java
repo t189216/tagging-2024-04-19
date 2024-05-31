@@ -1,6 +1,7 @@
 package com.ll.tg.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +16,8 @@ public class Member {
     private Long id;
 
     @Column(unique = true)
-    private String username;
+    @NotEmpty
+    private String name;
 
     @Column(unique = true)
     private String email;

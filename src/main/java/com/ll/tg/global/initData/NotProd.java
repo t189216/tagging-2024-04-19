@@ -1,7 +1,9 @@
 package com.ll.tg.global.initData;
 
+import com.ll.tg.controller.ItemForm;
 import com.ll.tg.domain.Member;
 import com.ll.tg.repository.MemberRepository;
+import com.ll.tg.service.ItemService;
 import com.ll.tg.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +20,7 @@ import org.springframework.core.annotation.Order;
 public class NotProd {
     private final MemberService memberService;
     private final MemberRepository memberRepository;
+    private final ItemService itemService;
 
     @Bean
     @Order(2)
@@ -43,6 +46,13 @@ public class NotProd {
                 memberService.join(member1);
                 memberService.join(member2);
                 memberService.join(member3);
+
+                for (int i = 1; i <= 10; i++) {
+                    ItemForm itemForm = new ItemForm();
+                    itemForm.setTitle("Sample Title " + i);
+                    itemForm.setContent("Sample Content " + i);
+                    itemService.saveItem(itemForm);
+                }
             }
         };
     }

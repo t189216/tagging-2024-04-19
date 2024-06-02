@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -30,5 +31,28 @@ public class ItemService {
 
     public List<Item> findItems() {
         return itemRepository.findAll();
+    }
+
+    public Optional<Item> findByItemId(Long itemId) {
+        return itemRepository.findById(itemId);
+    }
+
+    @Transactional
+    public void updateItem(Long itemId, String title, String content) {
+        Optional<Item> getItem = itemRepository.findById(itemId);
+
+        if (getItem.isPresent()) {
+
+            Item item = getItem.get();
+            item.setTitle(title);
+            item.setContent(content);
+
+            itemRepository.save(item);
+        }
+    }
+
+    @Transactional
+    public void deleteItem(Long itemId) {
+        itemRepository.deleteById(itemId);
     }
 }

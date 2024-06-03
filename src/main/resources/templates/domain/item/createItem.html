@@ -11,36 +11,34 @@
 </style>
 
 <body>
-<div class="container">
-    <div th:replace="fragments/navbar :: navbar" />
+<div th:replace="fragments/navbar :: navbar" />
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="mb-4 text-center">새 글 작성하기</h2>
-            <form role="form" th:action="@{/write}" th:object="${itemForm}" method="POST">
-                <div class="form-container">
-                    <div class="form-group">
-                        <label th:for="title">제목</label>
-                        <input type="text" th:field="*{title}" class="form-control" placeholder="제목을 작성하세요"
-                               th:class="${#fields.hasErrors('title')}? 'form-control fieldError' : 'form-control'">
-                        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect content</p>
-                    </div>
-                    <br/>
-
-                    <div class="form-group">
-                        <label th:for="content">내용</label>
-                        <input type="text" th:field="*{content}" class="form-control" placeholder="내용을 작성하세요"
-                               th:class="${#fields.hasErrors('content')}? 'form-control fieldError' : 'form-control'">
-                        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Incorrect content</p>
-                    </div>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4 text-center">새 글 작성하기</h2>
+        <form role="form" th:action="@{/write}" th:object="${itemForm}" method="POST">
+            <div class="form-container">
+                <div class="form-group">
+                    <label th:for="title">제목</label>
+                    <input type="text" th:field="*{title}" class="form-control" placeholder="제목을 작성하세요"
+                           th:class="${#fields.hasErrors('title')}? 'form-control fieldError' : 'form-control'">
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect content</p>
                 </div>
                 <br/>
 
-                <div class="button-container">
-                    <button id="createButton" type="submit" class="btn btn-primary">작성하기</button>
+                <div class="form-group">
+                    <label th:for="content">내용</label>
+                    <input type="text" th:field="*{content}" class="form-control" placeholder="내용을 작성하세요"
+                           th:class="${#fields.hasErrors('content')}? 'form-control fieldError' : 'form-control'">
+                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Incorrect content</p>
                 </div>
-            </form>
-        </div>
+            </div>
+            <br/>
+
+            <div class="button-container">
+                <button id="createButton" type="submit" class="btn btn-primary">작성하기</button>
+            </div>
+        </form>
     </div>
 </div>
 

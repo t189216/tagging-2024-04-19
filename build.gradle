@@ -38,6 +38,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     runtimeOnly 'com.h2database:h2'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation "com.deepl.api:deepl-java:1.5.0"
 }
 
 tasks.named('test') {
